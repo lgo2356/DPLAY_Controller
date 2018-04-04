@@ -29,6 +29,31 @@
             android:icon="@drawable/ic_launcher_foreground"
             android:theme="@style/AppTheme">
         </activity>
+
+        <activity
+            android:name=".BuzzerActivity"
+            android:label="Buzzer"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".MotorActivity"
+            android:theme="@style/AppTheme"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:label="Motor">
+        </activity>
+
+        <activity android:name=".ButtonActivity"
+            android:label="Button/Tilt"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".SettingsActivity"
+            android:theme="@style/AppTheme"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:label="Settings">
+        </activity>
     </application>
 
 </manifest>

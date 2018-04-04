@@ -23,26 +23,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/label_LED"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:background="@drawable/led_label"
-                        android:layout_gravity="center" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_marginBottom="10dp">
                     <TextView
                         android:layout_width="match_parent"
@@ -132,101 +112,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="@drawable/rotation"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/label_tilt"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:background="@drawable/tilt"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/label_button"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:background="@drawable/button"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/label_buzzer"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:background="@drawable/buzzer"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/label_DCmotor"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="115dp"
-                        android:background="@drawable/dc_motor"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/label_servo"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="115dp"
-                        android:background="@drawable/servo"
                         android:layout_gravity="center"/>
                 </LinearLayout>
             </LinearLayout>

@@ -33,6 +33,26 @@
     <string name="label_humidity">온습도 센서</string>
     <string name="label_DCmotor">DC 모터</string>
     <string name="label_servo">서보 모터</string>
+    
+    <string name="buzzer_syllable_names">계이름</string>
+    <string name="buzzer_C">도</string>
+    <string name="buzzer_D">레</string>
+    <string name="buzzer_E">미</string>
+    <string name="buzzer_F">파</string>
+    <string name="buzzer_G">솔</string>
+    <string name="buzzer_A">라</string>
+    <string name="buzzer_B">시</string>
+    
+    <string name="motor_type">모터 종류</string>
+    <string name="motor_DC">DC 모터</string>
+    <string name="motor_servo">서보 모터</string>
+    <string name="motor_direction_set">회전 방향 설정</string>
+    <string name="motor_angle_set">각도 설정</string>
+    <string name="motor_DC_speed">DC 모터 속도</string>
+    <string name="motor_angle">서보 모터 각도</string>
+
+    <string name="left">왼쪽</string>
+    <string name="right">오른쪽</string>
 
     <string name="analog_pin">핀 번호</string>
     <string name="analog_pin00">A00</string>
@@ -41,4 +61,18 @@
     <string name="analog_pin03">A03</string>
     <string name="analog_pin04">A04</string>
     <string name="analog_pin05">A05</string>
+    
+    <string name="digital_pin">핀 번호</string>
+    <string name="digital_pin02">02</string>
+    <string name="digital_pin03">03</string>
+    <string name="digital_pin04">04</string>
+    <string name="digital_pin05">05</string>
+    <string name="digital_pin06">06</string>
+    <string name="digital_pin07">07</string>
+    <string name="digital_pin08">08</string>
+    <string name="digital_pin09">09</string>
+    <string name="digital_pin10">10</string>
+    <string name="digital_pin11">11</string>
+    <string name="digital_pin12">12</string>
+    <string name="digital_pin13">13</string>
 </resources>

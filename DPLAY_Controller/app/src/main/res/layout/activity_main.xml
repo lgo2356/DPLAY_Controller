@@ -46,6 +46,7 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <Button
+                android:id="@+id/btnBuzzer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/btnBuzzer_name"
@@ -53,6 +54,7 @@
                 android:background="#819ee1"
                 android:layout_margin="5dp"/>
             <Button
+                android:id="@+id/btnMotor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/btnMotor_name"
@@ -68,6 +70,7 @@
         android:orientation="horizontal"
         android:layout_weight="3">
         <Button
+            android:id="@+id/btnSettings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/btnSettings_name"
