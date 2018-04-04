@@ -2,12 +2,12 @@
 <resources>
     <string name="app_name">D PLAY Controller</string>
 
-    <string name="btn01_name">LED</string>
-    <string name="btn02_name">버튼, 기울기</string>
-    <string name="btn03_name">각종 센서</string>
-    <string name="btn04_name">멜로디</string>
-    <string name="btn05_name">모터</string>
-    <string name="btn06_name">설정</string>
+    <string name="btnLED_name">LED</string>
+    <string name="btnButton_name">버튼, 기울기</string>
+    <string name="btnSensor_name">각종 센서</string>
+    <string name="btnBuzzer_name">멜로디</string>
+    <string name="btnMotor_name">모터</string>
+    <string name="btnSettings_name">설정</string>
 
     <string name="led02_name">2번</string>
     <string name="led03_name">3번</string>
@@ -21,4 +21,24 @@
     <string name="led11_name">11번</string>
     <string name="led12_name">12번</string>
     <string name="led13_name">13번</string>
+
+    <string name="label_LED">LED</string>
+    <string name="label_temperature">온도 센서</string>
+    <string name="label_IR">적외선 센서</string>
+    <string name="label_button">버튼</string>
+    <string name="label_buzzer">버저</string>
+    <string name="label_cds">조도 센서</string>
+    <string name="label_rotation">가변저항</string>
+    <string name="label_tilt">기울기 센서</string>
+    <string name="label_humidity">온습도 센서</string>
+    <string name="label_DCmotor">DC 모터</string>
+    <string name="label_servo">서보 모터</string>
+
+    <string name="analog_pin">핀 번호</string>
+    <string name="analog_pin00">A00</string>
+    <string name="analog_pin01">A01</string>
+    <string name="analog_pin02">A02</string>
+    <string name="analog_pin03">A03</string>
+    <string name="analog_pin04">A04</string>
+    <string name="analog_pin05">A05</string>
 </resources>

@@ -9,28 +9,31 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
+    private static final int REQUEST_CODE_LED = 101;
+    private static final int REQUEST_CODE_SENSOR = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn01 = (Button) findViewById(R.id.btn01);
-        Button btn02 = (Button) findViewById(R.id.btn02);
+        Button btnLED = (Button) findViewById(R.id.btnLED);
+        Button btnSensor = (Button) findViewById(R.id.btnSensor);
 
-        btn01.setOnClickListener(new View.OnClickListener() {
+        btnLED.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LEDActivity.class);
-                startActivityForResult(intent, 101);
+                startActivityForResult(intent, REQUEST_CODE_LED);
                 Toast.makeText(getApplicationContext(), "Button01 Clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
-        btn02.setOnClickListener(new View.OnClickListener() {
+        btnSensor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Button02 Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), SensorActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_SENSOR);
             }
         });
     }

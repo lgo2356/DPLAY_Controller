@@ -10,18 +10,18 @@
         android:orientation="horizontal"
         android:layout_weight="2">
         <Button
-            android:id="@+id/btn01"
+            android:id="@+id/btnLED"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/btn01_name"
+            android:text="@string/btnLED_name"
             android:background="#d78a8a"
             android:layout_weight="1"
             android:layout_margin="5dp"/>
         <Button
-            android:id="@+id/btn02"
+            android:id="@+id/btnButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/btn02_name"
+            android:text="@string/btnButton_name"
             android:background="#a8a8bf"
             android:layout_weight="1"
             android:layout_margin="5dp"/>
@@ -33,9 +33,10 @@
         android:orientation="horizontal"
         android:layout_weight="2">
         <Button
+            android:id="@+id/btnSensor"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/btn03_name"
+            android:text="@string/btnSensor_name"
             android:layout_weight="1"
             android:background="#d8de75"
             android:layout_margin="5dp"/>
@@ -47,14 +48,14 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/btn04_name"
+                android:text="@string/btnBuzzer_name"
                 android:layout_weight="1"
                 android:background="#819ee1"
                 android:layout_margin="5dp"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/btn05_name"
+                android:text="@string/btnMotor_name"
                 android:layout_weight="1"
                 android:background="#dea175"
                 android:layout_margin="5dp"/>
@@ -69,7 +70,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/btn06_name"
+            android:text="@string/btnSettings_name"
             android:background="#797979"
             android:layout_margin="5dp"/>
     </LinearLayout>
