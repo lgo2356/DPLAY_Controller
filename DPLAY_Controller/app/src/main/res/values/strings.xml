@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">D PLAY Controller</string>
+
+    <string name="btn01_name">LED</string>
+    <string name="btn02_name">버튼, 기울기</string>
+    <string name="btn03_name">각종 센서</string>
+    <string name="btn04_name">멜로디</string>
+    <string name="btn05_name">모터</string>
+    <string name="btn06_name">설정</string>
+
+    <string name="led02_name">2번</string>
+    <string name="led03_name">3번</string>
+    <string name="led04_name">4번</string>
+    <string name="led05_name">5번</string>
+    <string name="led06_name">6번</string>
+    <string name="led07_name">7번</string>
+    <string name="led08_name">8번</string>
+    <string name="led09_name">9번</string>
+    <string name="led10_name">10번</string>
+    <string name="led11_name">11번</string>
+    <string name="led12_name">12번</string>
+    <string name="led13_name">13번</string>
+</resources>
