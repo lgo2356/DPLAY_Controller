@@ -13,5 +13,22 @@ public class LEDActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_led);
+
+        final ToggleButton led02 = (ToggleButton) findViewById(R.id.ledBtn2);
+
+        if(led02.isChecked()) {
+            Toast.makeText(getApplicationContext(), "Check!!", Toast.LENGTH_SHORT).show();
+        }
+
+        led02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(led02.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "02 Checked", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "02 Unchecked", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

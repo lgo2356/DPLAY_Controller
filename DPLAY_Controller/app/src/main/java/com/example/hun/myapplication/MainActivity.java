@@ -33,7 +33,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LEDActivity.class);
                 startActivityForResult(intent, REQUEST_CODE_LED);
-                Toast.makeText(getApplicationContext(), "Button01 Clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,7 +80,6 @@ public class MainActivity extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK) {
-            Toast.makeText(this, "Back", Toast.LENGTH_SHORT).show();
             onBackPressed();
             return true;
         }

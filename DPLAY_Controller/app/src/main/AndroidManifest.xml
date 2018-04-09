@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hun.myapplication">
 
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,41 +21,37 @@
         </activity>
         <activity
             android:name=".LEDActivity"
-            android:label="LED"
-            android:icon="@drawable/ic_launcher_foreground"
-            android:theme="@style/AppTheme">
+            android:label="LED">
         </activity>
 
         <activity
             android:name=".SensorActivity"
-            android:label="Sensor"
-            android:icon="@drawable/ic_launcher_foreground"
-            android:theme="@style/AppTheme">
+            android:label="Sensor">
         </activity>
 
         <activity
             android:name=".BuzzerActivity"
-            android:label="Buzzer"
-            android:icon="@drawable/ic_launcher_foreground"
-            android:theme="@style/AppTheme">
+            android:label="Buzzer">
         </activity>
 
-        <activity android:name=".MotorActivity"
-            android:theme="@style/AppTheme"
-            android:icon="@drawable/ic_launcher_foreground"
+        <activity
+            android:name=".MotorActivity"
             android:label="Motor">
         </activity>
 
-        <activity android:name=".ButtonActivity"
-            android:label="Button/Tilt"
-            android:icon="@drawable/ic_launcher_foreground"
-            android:theme="@style/AppTheme">
+        <activity
+            android:name=".ButtonActivity"
+            android:label="Button/Tilt">
         </activity>
 
-        <activity android:name=".SettingsActivity"
-            android:theme="@style/AppTheme"
-            android:icon="@drawable/ic_launcher_foreground"
+        <activity
+            android:name=".SettingsActivity"
             android:label="Settings">
+        </activity>
+
+        <activity
+            android:name=".DeviceListActivity"
+            android:label="Device List">
         </activity>
     </application>
 
