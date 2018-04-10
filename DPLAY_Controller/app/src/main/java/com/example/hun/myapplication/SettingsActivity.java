@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,28 +35,62 @@ public class SettingsActivity extends Activity {
     char mCharDelimiter = '\n';
 
     Thread mWorkerThread = null;
+    Thread mSendThread = null;
 
     byte[] readBuffer = null;
     int readBufferPosition = 0;
 
+    private static final String TAG = "BluetoothClient";
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private static final int REQUEST_ENABLE_BT = 101;
+    private static final int REQUEST_CONNECT_DEVICE = 102;
     private int mPairedDeviceCount = 0;
     Set<BluetoothDevice> mDevices;
 
     TextView mEditReceive, mEditSend;
-    Button mButtonSend;
+    Button mButtonSend, buttonSearch;
+
+    private BluetoothService btService = null;
+
+    private final Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        buttonSearch = (Button) findViewById(R.id.button_search);
+
         mEditSend = (EditText) findViewById(R.id.edit_text_send);
         mEditReceive = (TextView) findViewById(R.id.edit_text_receive);
         mButtonSend = (Button) findViewById(R.id.button_send);
 
-        checkBluetooth();
+        // BluetoothService 클래스 생성
+        if(btService == null) {
+            btService = new BluetoothService(this, mHandler);
+        }
+
+        mButtonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendData(mEditSend.getText().toString());
+                //sendDataThread(mEditSend.getText().toString());
+                //mSendThread.start();
+                mEditSend.setText("");
+            }
+        });
+
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // checkBluetooth();
+                if(btService.getDeviceState()) {
+                    btService.enableBluetooth();
+                } else {
+                    finish();
+                }
+            }
+        });
     }
 
     /**
@@ -77,6 +112,18 @@ public class SettingsActivity extends Activity {
             }
         }
         return selectedDevice;
+    }
+
+    void sendData(String msg) {
+        msg += mCharDelimiter;
+        byte[] msgBytes = msg.getBytes();
+
+        try {
+            mOutputStream.write(msgBytes);
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "데이터 전송 중에 요류가 발생했습니다.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     void connectToSelectedDevice(String selectedDeviceName) {
@@ -126,7 +173,7 @@ public class SettingsActivity extends Activity {
             finish();
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("블루투스 장치 선택");
 
         List<String> listItems = new ArrayList<String>();
@@ -141,9 +188,7 @@ public class SettingsActivity extends Activity {
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                if(item == mPairedDeviceCount) {
-                    finish();
-                } else {
+                if(item < mPairedDeviceCount) {
                     connectToSelectedDevice(items[item].toString());
                 }
             }
@@ -157,6 +202,25 @@ public class SettingsActivity extends Activity {
     /**
      *
      */
+    void sendDataThread(final String msg) {
+        final Handler handler = new Handler();
+
+        mSendThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(!Thread.currentThread().isInterrupted()) {
+                    try {
+                        // msg += mCharDelimiter;
+                        byte[] msgBytes = msg.getBytes();
+                        mOutputStream.write(msgBytes);
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "데이터 전송중 요류 발생", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }
+            }
+        });
+    }
 
     void beginListenForData() {
         final Handler handler = new Handler();
@@ -181,7 +245,8 @@ public class SettingsActivity extends Activity {
 
                                 if (b == mCharDelimiter) {
                                     byte[] encodeedBytes = new byte[readBufferPosition];
-                                    System.arraycopy(readBuffer, 0, encodeedBytes, 0, encodeedBytes.length);
+                                    System.arraycopy(readBuffer, 0, encodeedBytes, 0,
+                                            encodeedBytes.length);
 
                                     final String data = new String(encodeedBytes, "US-ASCII");
                                     readBufferPosition = 0;
@@ -189,7 +254,8 @@ public class SettingsActivity extends Activity {
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            mEditReceive.setText(mEditReceive.getText().toString() + data + mStrDelimiter);
+                                            mEditReceive.setText(mEditReceive.getText().toString()
+                                                    + data + mStrDelimiter);
                                         }
                                     });
                                 } else {
@@ -198,7 +264,8 @@ public class SettingsActivity extends Activity {
                             }
                         }
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "데이터 수신 중 오류가 발생 했습니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "데이터 수신 중 오류가 발생 했습니다.",
+                                Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }
@@ -208,10 +275,11 @@ public class SettingsActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         try {
-            mWorkerThread.interrupt();
-            mInputStream.close();
-            mSocket.close();
+            //mWorkerThread.interrupt();
+            //mInputStream.close();
+            //mSocket.close();
         } catch (Exception e) {
             super.onDestroy();
         }
@@ -223,7 +291,8 @@ public class SettingsActivity extends Activity {
             case REQUEST_ENABLE_BT:
                 if(resultCode == RESULT_OK) {
                     // 블루투스를 활성화 상태일 때
-                    selectDevice();
+                    // selectDevice();
+                    btService.scanDevice();
                 } else {
                     if(resultCode == RESULT_CANCELED) {
                         // 블루투스가 비활성화 상태일 때
@@ -233,7 +302,14 @@ public class SettingsActivity extends Activity {
                     }
                     break;
                 }
-                super.onActivityResult(requestCode, resultCode, data);
+
+            case REQUEST_CONNECT_DEVICE:
+                if(resultCode == Activity.RESULT_OK) {
+                    btService.getDeviceInfo(data);
+                }
+                break;
+
+                // super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
