@@ -61,36 +61,36 @@ public class SettingsActivity extends Activity {
 
         buttonSearch = (Button) findViewById(R.id.button_search);
 
-        mEditSend = (EditText) findViewById(R.id.edit_text_send);
-        mEditReceive = (TextView) findViewById(R.id.edit_text_receive);
-        mButtonSend = (Button) findViewById(R.id.button_send);
+//        mEditSend = (EditText) findViewById(R.id.edit_text_send);
+//        mEditReceive = (TextView) findViewById(R.id.edit_text_receive);
+//        mButtonSend = (Button) findViewById(R.id.button_send);
 
         // BluetoothService 클래스 생성
         if(btService == null) {
             btService = new BluetoothService(this, mHandler);
         }
 
-        mButtonSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendData(mEditSend.getText().toString());
-                //sendDataThread(mEditSend.getText().toString());
-                //mSendThread.start();
-                mEditSend.setText("");
-            }
-        });
+//        mButtonSend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                sendData(mEditSend.getText().toString());
+//                //sendDataThread(mEditSend.getText().toString());
+//                //mSendThread.start();
+//                mEditSend.setText("");
+//            }
+//        });
 
-        buttonSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // checkBluetooth();
-                if(btService.getDeviceState()) {
-                    btService.enableBluetooth();
-                } else {
-                    finish();
-                }
-            }
-        });
+//        buttonSearch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // checkBluetooth();
+//                if(btService.getDeviceState()) {
+//                    btService.enableBluetooth();
+//                } else {
+//                    finish();
+//                }
+//            }
+//        });
     }
 
     /**
@@ -254,8 +254,8 @@ public class SettingsActivity extends Activity {
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            mEditReceive.setText(mEditReceive.getText().toString()
-                                                    + data + mStrDelimiter);
+//                                            mEditReceive.setText(mEditReceive.getText().toString()
+//                                                    + data + mStrDelimiter);
                                         }
                                     });
                                 } else {

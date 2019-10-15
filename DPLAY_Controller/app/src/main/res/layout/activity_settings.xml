@@ -32,31 +32,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="장치 검색"/>
-        <TextView
-            android:id="@+id/text_bluetooth_Device_Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ABC"
-            android:textColor="#ffffff"/>
-        <Button
-            android:id="@+id/button_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:textColor="#ffffff"/>
-        <EditText
-            android:id="@+id/edit_text_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="EDIT"/>
-        <TextView
-            android:id="@+id/edit_text_receive"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="#ffffff"
-            android:text="blink"
-            android:textSize="5sp"/>
     </LinearLayout>
 
 </LinearLayout>
